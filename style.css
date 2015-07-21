@@ -31,3 +31,8 @@ h1 {
     height: 20px;
     background: yellow;
   }
+
+    #grid input[type='checkbox']:checked {
+      background: #100159;
+      box-shadow: 0 0 0 99px black inset;
+    }
