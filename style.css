@@ -9,17 +9,29 @@ body {
 }
 
 h1 {
-  margin-bottom: 0.5em 0 1em;
+  margin-bottom: .5em 0 1em;
 }
 
 #grid {
-  margin: auto;
+  margin: 1em auto 0;
   border-spacing: 0;
   border-collapse: collapse;
 }
 
   #grid td {
     border: 1px solid gray;
+  }}
+
+  @-webkit-keyframes birth {
+    50% {
+      box-shadow: 0 0 0 99px green inset;
+    }
+  }
+
+  @keyframes birth {
+    50% {
+      box-shadow: 0 0 0 99px green inset;
+    }
   }
 
   #grid input[type='checkbox'] {
@@ -30,9 +42,42 @@ h1 {
     width: 20px;
     height: 20px;
     background: yellow;
+    transition: 500ms;
   }
 
     #grid input[type='checkbox']:checked {
       background: #100159;
-      box-shadow: 0 0 0 99px black inset;
+      animation: birth 500ms;
     }
+
+button,
+.button {
+  padding: .4em .6em;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: .3em;
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.7) inset, 0 .15em .1em -.1em rgba(0,0,0,.3);
+  background: linear-gradient(hsla(0,0%,100%,.3), hsla(0,0%,100%,0)) hsl(80,80%,35%);
+  color: white;
+  text-shadow: 0 -.05em .05em rgba( 0,0,0,.3);
+  font: inherit;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+}
+
+button:enabled:active,
+.button:active,
+input[type="checkbox"]:checked + label.button {
+  background-image: none;
+  box-shadow: 0 .05em .2em rgba(0, 0, 0, .5) inset;
+}
+
+button:disabled {
+  background-color: hsl(80,20%,40%);
+  cursor: not-allowed;
+}
+
+#autoplay {
+  position: absolute;
+  clip: rect(0,0,0,0);
+}

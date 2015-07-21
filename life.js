@@ -155,7 +155,7 @@ console.log(game + '');
                 break;
               case 40: // bottom
                 if(y < me.size - 1) {
-                  me.checkboxes[y + 1][x].focus();
+                  me.checkboxes[y + 1][x].focus() ;
                 }
                 break;
           }
@@ -215,11 +215,12 @@ var lifeView = new LifeView(document.getElementById('grid'), 12);
   });
 
   $('#autoplay').addEventListener('change', function() {
-    buttons.next.textContent = this.checked? 'Start' : 'Next';
+    buttons.next.disabled = this.checked;
 
-    lifeView.autoplay = this.checked;
-
-    if(!this.checked) {
+    if(this.checked) {
+      lifeView.autoplay = this.checked;
+      lifeView.next();
+    } else {
       clearTimeout(lifeView.timer);
     }
   });
